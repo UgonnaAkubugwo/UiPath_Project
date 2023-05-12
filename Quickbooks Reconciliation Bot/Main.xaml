@@ -679,15 +679,15 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                           <Transition.To>
-                            <State x:Name="__ReferenceID1" sap2010:Annotation.AnnotationText="End process and close all applications used." DisplayName="End Process" sap:VirtualizedContainerService.HintSize="656,1360" sap2010:WorkflowViewState.IdRef="State_1" IsFinal="True">
+                            <State x:Name="__ReferenceID1" sap2010:Annotation.AnnotationText="End process and close all applications used." DisplayName="End Process" sap:VirtualizedContainerService.HintSize="656,1995.3333333333333" sap2010:WorkflowViewState.IdRef="State_1" IsFinal="True">
                               <State.Entry>
-                                <Sequence DisplayName="End Process" sap:VirtualizedContainerService.HintSize="609.3333333333334,1212.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_37">
+                                <Sequence DisplayName="End Process" sap:VirtualizedContainerService.HintSize="609.3333333333334,1848" sap2010:WorkflowViewState.IdRef="Sequence_37">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <ui:IfElseIf DisplayName="Else If" sap:VirtualizedContainerService.HintSize="547.3333333333334,707.3333333333334" sap2010:WorkflowViewState.IdRef="IfElseIf_1">
+                                  <ui:IfElseIf DisplayName="Else If" sap:VirtualizedContainerService.HintSize="547.3333333333334,1342.6666666666667" sap2010:WorkflowViewState.IdRef="IfElseIf_1">
                                     <ui:IfElseIf.ConditionBlocks>
                                       <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
                                         <ui:IfElseIfBlock BlockType="If" Condition="[SystemException is &quot;Company file not found&quot;]">
@@ -707,10 +707,38 @@
                                                   <OutArgument x:TypeArguments="x:String">[Body]</OutArgument>
                                                 </Assign.To>
                                                 <Assign.Value>
-                                                  <InArgument x:TypeArguments="x:String">[Body.Replace("file_location", config("Company_Name_Filepath").ToString)]</InArgument>
+                                                  <InArgument x:TypeArguments="x:String">[Body.Replace("file_location", config("Company_Name_Filepath").ToString).Replace("Client_Name", config("Client_Name").ToString)]</InArgument>
                                                 </Assign.Value>
                                               </Assign>
                                               <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" Body="Company Name File not Found" Cc="[Config(&quot;ErrorEmail_Cc&quot;).ToString]" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="434,148" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" Importance="Normal" IsBodyHtml="False" IsDraft="False" Sensitivity="Normal" Subject="[Body]" To="[Config(&quot;ErrorEmail_To&quot;).ToString]">
+                                                <ui:SendOutlookMail.Files>
+                                                  <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
+                                                </ui:SendOutlookMail.Files>
+                                              </ui:SendOutlookMail>
+                                            </Sequence>
+                                          </ui:IfElseIfBlock.Then>
+                                        </ui:IfElseIfBlock>
+                                        <ui:IfElseIfBlock BlockType="ElseIf" Condition="[TransactionItem Is Nothing]">
+                                          <ui:IfElseIfBlock.Then>
+                                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="496,506" sap2010:WorkflowViewState.IdRef="Sequence_38">
+                                              <Sequence.Variables>
+                                                <Variable x:TypeArguments="x:String" Name="Body" />
+                                              </Sequence.Variables>
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <ui:ReadTextFile File="{x:Null}" Content="[Body]" DisplayName="Read Text File" FileName="Mail Template\Quickbooks Report Completed.txt" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="ReadTextFile_2" />
+                                              <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_30">
+                                                <Assign.To>
+                                                  <OutArgument x:TypeArguments="x:String">[Body]</OutArgument>
+                                                </Assign.To>
+                                                <Assign.Value>
+                                                  <InArgument x:TypeArguments="x:String">[Body. Replace("Client_Name", config("Client_Name").ToString)]</InArgument>
+                                                </Assign.Value>
+                                              </Assign>
+                                              <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" Body="Quickbooks Reconciliation Completed" Cc="[Config(&quot;Email_Cc&quot;).ToString]" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="434,148" sap2010:WorkflowViewState.IdRef="SendOutlookMail_2" Importance="Normal" IsBodyHtml="False" IsDraft="False" Sensitivity="Normal" Subject="[Body]" To="[Config(&quot;Email_To&quot;).ToString]">
                                                 <ui:SendOutlookMail.Files>
                                                   <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
                                                 </ui:SendOutlookMail.Files>
