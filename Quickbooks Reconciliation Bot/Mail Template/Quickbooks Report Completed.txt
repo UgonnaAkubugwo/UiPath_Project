@@ -1,0 +1,11 @@
+﻿Hi,
+
+The Quickbook Robot has completed the Reconciliation of the accounts in the Quickbook account.
+
+Attached to the mail is the report for today's reconciliation.
+
+Thank you.
+
+Kind regards,
+
+Client_Name Quickbook Robot
