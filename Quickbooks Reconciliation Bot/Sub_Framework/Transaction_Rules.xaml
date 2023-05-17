@@ -7,7 +7,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>824,2148.6666666666665</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1797,8474</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Transaction_Rules_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -105,56 +105,30 @@
       <AssemblyReference>System.CodeDom</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Transaction_Rules" sap:VirtualizedContainerService.HintSize="834,2084" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Transaction_Rules" sap:VirtualizedContainerService.HintSize="1807,8409" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser 'chrome.exe Bank'" sap:VirtualizedContainerService.HintSize="772,1973.3333333333333" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="032206ae7ec548dc06ac06677df7bbdc" Selector="&lt;html app='chrome.exe' title='*Bank transactions*' /&gt;">
+    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser 'chrome.exe Bank'" sap:VirtualizedContainerService.HintSize="1745,8298" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="032206ae7ec548dc06ac06677df7bbdc" Selector="&lt;html app='chrome.exe' title='*Bank transactions*' /&gt;">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="738,1826" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1711,8151" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
-              <Variable x:TypeArguments="x:Int32" Name="Transaction_Count">
-                <Variable.Default>
-                  <Literal x:TypeArguments="x:Int32" Value="1" />
-                </Variable.Default>
-              </Variable>
+              <Variable x:TypeArguments="x:Int32" Default="1" Name="Transaction_Count" />
             </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Banking" sap:VirtualizedContainerService.HintSize="676,107.33333333333333" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
-              <ui:Click.CursorPosition>
-                <ui:CursorPosition Position="Center">
-                  <ui:CursorPosition.OffsetX>
-                    <InArgument x:TypeArguments="x:Int32" />
-                  </ui:CursorPosition.OffsetX>
-                  <ui:CursorPosition.OffsetY>
-                    <InArgument x:TypeArguments="x:Int32" />
-                  </ui:CursorPosition.OffsetY>
-                </ui:CursorPosition>
-              </ui:Click.CursorPosition>
-              <ui:Click.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="8603da65-3f86-428a-a197-e08aec60809a" InformativeScreenshot="6a3b36105de2fb2d0476354bed22d004" Selector="&lt;webctrl parentid='app' tag='A' aaname='Banking' /&gt;">
-                  <ui:Target.TimeoutMS>
-                    <InArgument x:TypeArguments="x:Int32" />
-                  </ui:Target.TimeoutMS>
-                  <ui:Target.WaitForReady>
-                    <InArgument x:TypeArguments="ui:WaitForReady" />
-                  </ui:Target.WaitForReady>
-                </ui:Target>
-              </ui:Click.Target>
-            </ui:Click>
-            <ui:InterruptibleWhile CurrentIndex="{x:Null}" DisplayName="While" sap:VirtualizedContainerService.HintSize="676,1568" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
+            <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[Transaction_Count&lt;=50]" DisplayName="While" sap:VirtualizedContainerService.HintSize="1649,8040" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
               <ui:InterruptibleWhile.Body>
-                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="639.3333333333334,1397.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1613,7874" sap2010:WorkflowViewState.IdRef="Sequence_3">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:Boolean" Name="TransactionRowExist" />
                     <Variable x:TypeArguments="x:String" Name="Transaction_Action" />
@@ -166,7 +140,7 @@
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:UiElementExists DisplayName="Element Exists Transaction Row" Exists="[TransactionRowExist]" sap:VirtualizedContainerService.HintSize="577.3333333333334,107.33333333333333" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+                  <ui:UiElementExists DisplayName="Element Exists Transaction Row" Exists="[TransactionRowExist]" sap:VirtualizedContainerService.HintSize="1551,107" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
                     <ui:UiElementExists.Target>
                       <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="941e9e35-d61c-4493-bf62-896841589dea" InformativeScreenshot="f6deebc2dab83943ed27843eaa5ca94d" Selector="[string.Format(&quot;&lt;webctrl idx='2' tag='TABLE' /&gt;&lt;webctrl isleaf='1' tableRow='{0}' tag='TD' aria-role='gridcell' class='idsTable--quickbooksTheme idsTable__cell txnDate' /&gt;&quot;, Transaction_Count)]" TimeoutMS="[LowTimeout]">
                         <ui:Target.WaitForReady>
@@ -175,15 +149,15 @@
                       </ui:Target>
                     </ui:UiElementExists.Target>
                   </ui:UiElementExists>
-                  <If Condition="[TransactionRowExist]" DisplayName="If Treansaction Row Exist" sap:VirtualizedContainerService.HintSize="1551.3333333333333,7497.333333333333" sap2010:WorkflowViewState.IdRef="If_1">
+                  <If Condition="[TransactionRowExist]" DisplayName="If Treansaction Row Exist" sap:VirtualizedContainerService.HintSize="1551,7491" sap2010:WorkflowViewState.IdRef="If_1">
                     <If.Then>
-                      <Sequence sap:VirtualizedContainerService.HintSize="1517.3333333333333,7314" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                      <Sequence sap:VirtualizedContainerService.HintSize="1517,7309" sap2010:WorkflowViewState.IdRef="Sequence_5">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <Assign DisplayName="Assign TableRow" sap:VirtualizedContainerService.HintSize="1475.3333333333333,84.66666666666667" sap2010:WorkflowViewState.IdRef="Assign_3">
+                        <Assign DisplayName="Assign TableRow" sap:VirtualizedContainerService.HintSize="1475,81" sap2010:WorkflowViewState.IdRef="Assign_3">
                           <Assign.To>
                             <OutArgument x:TypeArguments="x:Int32">[TableRow]</OutArgument>
                           </Assign.To>
@@ -191,7 +165,7 @@
                             <InArgument x:TypeArguments="x:Int32">[Transaction_Count+1]</InArgument>
                           </Assign.Value>
                         </Assign>
-                        <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="1475.3333333333333,395.3333333333333" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="3" RetryInterval="00:00:05">
+                        <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="1475,393" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="3" RetryInterval="00:00:05">
                           <ui:RetryScope.ActivityBody>
                             <ActivityAction>
                               <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="450,218" sap2010:WorkflowViewState.IdRef="Sequence_4">
@@ -200,7 +174,7 @@
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text Action Name" sap:VirtualizedContainerService.HintSize="388,107.33333333333333" sap2010:WorkflowViewState.IdRef="GetValue_1">
+                                <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text Action Name" sap:VirtualizedContainerService.HintSize="388,107" sap2010:WorkflowViewState.IdRef="GetValue_1">
                                   <ui:GetValue.Target>
                                     <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="02b2a9c6-6006-459a-b9d4-5c0a175ab3c4" InformativeScreenshot="c4f30a10ea2ba6ce8bacbdc3edf9183c" Selector="[string.Format(&quot;&lt;webctrl tag='TABLE' idx='2' /&gt;&lt;webctrl tableRow='{0}' tag='TD' isleaf='0' class='idsTable--quickbooksTheme idsTable__cell action' /&gt;&quot;, Transaction_Count)]">
                                       <ui:Target.TimeoutMS>
@@ -885,9 +859,6 @@
                   </Assign>
                 </Sequence>
               </ui:InterruptibleWhile.Body>
-              <ui:InterruptibleWhile.Condition>
-                <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="Transaction_Count&lt;=50" />
-              </ui:InterruptibleWhile.Condition>
             </ui:InterruptibleWhile>
           </Sequence>
         </ActivityAction>
