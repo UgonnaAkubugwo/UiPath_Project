@@ -1,4 +1,4 @@
-Hey there,
+﻿Hey there,
 
 I couldn't access Xero because of the multifactor authentication process. What a bother!
 
@@ -8,4 +8,4 @@ I owe you one ;-)
 
 Love and cuddles,
 
-Arnie the Xero Reconciliation Robot
+ClientName Xero Reconciliation Robot
