@@ -11,7 +11,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>612,1964</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>592,1964</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Get_Xero_Details_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -115,7 +115,7 @@
                 <OutArgument x:TypeArguments="x:String">[XeroParentid]</OutArgument>
               </Assign.To>
               <Assign.Value>
-                <InArgument x:TypeArguments="x:String">ext-gen322</InArgument>
+                <InArgument x:TypeArguments="x:String">["ext-gen"+(int32.Parse(Parentid.Split("n"c)(1))+4).ToString]</InArgument>
               </Assign.Value>
             </Assign>
             <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text Xero Date" sap:VirtualizedContainerService.HintSize="434,107.33333333333333" sap2010:WorkflowViewState.IdRef="GetValue_1">
