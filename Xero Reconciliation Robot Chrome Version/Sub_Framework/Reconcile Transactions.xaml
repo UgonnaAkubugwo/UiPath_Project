@@ -1,7 +1,8 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Reconcile_Transactions" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Reconcile_Transactions" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="DateFrom" Type="InArgument(x:String)" />
     <x:Property Name="DateTo" Type="InArgument(x:String)" />
+    <x:Property Name="dt_TransactionDetails" Type="InOutArgument(sd:DataTable)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
@@ -41,6 +42,8 @@
       <x:String>UiPath.Platform.ObjectLibrary</x:String>
       <x:String>UiPath.Shared.Activities</x:String>
       <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -89,6 +92,13 @@
       <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
       <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="Reconcile_Transactions" sap:VirtualizedContainerService.HintSize="980.6666666666666,3826.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -121,15 +131,15 @@
                 <InArgument x:TypeArguments="x:Int32">1</InArgument>
               </Assign.Value>
             </Assign>
-            <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" Condition="[increment&lt;=10]" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="822.6666666666667,3454.6666666666665" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
+            <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" Condition="[increment&lt;=10]" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="822.6666666666667,3608" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
               <ui:InterruptibleDoWhile.Body>
-                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="786,3285.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="786,3438.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_4">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Sequence DisplayName="Transaction" sap:VirtualizedContainerService.HintSize="724,3050" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                  <Sequence DisplayName="Transaction" sap:VirtualizedContainerService.HintSize="724,3204" sap2010:WorkflowViewState.IdRef="Sequence_2">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="x:String" Name="idx" />
                       <Variable x:TypeArguments="x:String" Name="id" />
@@ -145,19 +155,16 @@
                     </sap:WorkflowViewStateService.ViewState>
                     <ui:UiElementExists DisplayName="Element Exists" Exists="[TransactionExist]" sap:VirtualizedContainerService.HintSize="662,107.33333333333333" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
                       <ui:UiElementExists.Target>
-                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e09dabfd-736b-451f-ae05-172e383006c1" InformativeScreenshot="09c309f971c43dc8d09e2d2cf47ad3f9" Selector="[string.Format(&quot;&lt;webctrl tag='DIV' class='line ' parentid='statementLines' css-selector='body&amp;gt;div&amp;gt;form&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' idx='{0}' /&gt;&quot;, increment)]">
-                          <ui:Target.TimeoutMS>
-                            <InArgument x:TypeArguments="x:Int32" />
-                          </ui:Target.TimeoutMS>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e09dabfd-736b-451f-ae05-172e383006c1" InformativeScreenshot="09c309f971c43dc8d09e2d2cf47ad3f9" Selector="[string.Format(&quot;&lt;webctrl tag='DIV' class='line ' parentid='statementLines' css-selector='body&amp;gt;div&amp;gt;form&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' idx='{0}' /&gt;&quot;, increment)]" TimeoutMS="[ElementTimeout]">
                           <ui:Target.WaitForReady>
                             <InArgument x:TypeArguments="ui:WaitForReady" />
                           </ui:Target.WaitForReady>
                         </ui:Target>
                       </ui:UiElementExists.Target>
                     </ui:UiElementExists>
-                    <If Condition="[TransactionExist]" sap:VirtualizedContainerService.HintSize="662,2792" sap2010:WorkflowViewState.IdRef="If_1">
+                    <If Condition="[TransactionExist]" sap:VirtualizedContainerService.HintSize="662,2946" sap2010:WorkflowViewState.IdRef="If_1">
                       <If.Then>
-                        <Sequence sap:VirtualizedContainerService.HintSize="628,2608.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                        <Sequence sap:VirtualizedContainerService.HintSize="628,2762.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_5">
                           <Sequence.Variables>
                             <Variable x:TypeArguments="x:String" Name="Classid" />
                             <Variable x:TypeArguments="x:Boolean" Name="GreenMatchedElementExist" />
@@ -200,7 +207,7 @@
                               </ui:Target>
                             </ui:UiElementExists.Target>
                           </ui:UiElementExists>
-                          <If Condition="[GreenMatchedElementExist]" DisplayName="Check If Green Matched" sap:VirtualizedContainerService.HintSize="586,1994.6666666666667" sap2010:WorkflowViewState.IdRef="If_3">
+                          <If Condition="[GreenMatchedElementExist]" DisplayName="Check If Green Matched" sap:VirtualizedContainerService.HintSize="586,2148.6666666666665" sap2010:WorkflowViewState.IdRef="If_3">
                             <If.Then>
                               <Sequence sap:VirtualizedContainerService.HintSize="452,1074" sap2010:WorkflowViewState.IdRef="Sequence_10">
                                 <Sequence.Variables>
@@ -286,6 +293,12 @@
                                           <InArgument x:TypeArguments="x:String" x:Key="id">
                                             <VisualBasicValue x:TypeArguments="x:String" ExpressionText="id" />
                                           </InArgument>
+                                          <InOutArgument x:TypeArguments="x:Int32" x:Key="increment">
+                                            <VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="increment" />
+                                          </InOutArgument>
+                                          <InOutArgument x:TypeArguments="sd:DataTable" x:Key="dt_TransactionDetails">
+                                            <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dt_TransactionDetails" />
+                                          </InOutArgument>
                                         </ui:InvokeWorkflowFile.Arguments>
                                       </ui:InvokeWorkflowFile>
                                     </Sequence>
@@ -320,6 +333,12 @@
                                           <InArgument x:TypeArguments="x:String" x:Key="id">
                                             <VisualBasicValue x:TypeArguments="x:String" ExpressionText="id" />
                                           </InArgument>
+                                          <InOutArgument x:TypeArguments="x:Int32" x:Key="increment">
+                                            <VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="increment" />
+                                          </InOutArgument>
+                                          <InOutArgument x:TypeArguments="sd:DataTable" x:Key="dt_TransactionDetails">
+                                            <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dt_TransactionDetails" />
+                                          </InOutArgument>
                                         </ui:InvokeWorkflowFile.Arguments>
                                       </ui:InvokeWorkflowFile>
                                     </Sequence>
@@ -328,7 +347,7 @@
                               </Sequence>
                             </If.Then>
                             <If.Else>
-                              <Sequence sap:VirtualizedContainerService.HintSize="552,737.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                              <Sequence sap:VirtualizedContainerService.HintSize="552,891.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_11">
                                 <Sequence.Variables>
                                   <Variable x:TypeArguments="x:Boolean" Name="ApplyRuleExist" />
                                 </Sequence.Variables>
@@ -346,9 +365,9 @@
                                     </ui:Target>
                                   </ui:UiElementExists.Target>
                                 </ui:UiElementExists>
-                                <If Condition="[ApplyRuleExist]" sap:VirtualizedContainerService.HintSize="510,502.6666666666667" sap2010:WorkflowViewState.IdRef="If_4">
+                                <If Condition="[ApplyRuleExist]" sap:VirtualizedContainerService.HintSize="510,656.6666666666666" sap2010:WorkflowViewState.IdRef="If_4">
                                   <If.Then>
-                                    <Sequence sap:VirtualizedContainerService.HintSize="476,319.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                                    <Sequence sap:VirtualizedContainerService.HintSize="476,473.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_16">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -376,7 +395,26 @@
                                           </ui:Target>
                                         </ui:Click.Target>
                                       </ui:Click>
-                                      <Assign sap:VirtualizedContainerService.HintSize="434,84.66666666666667" sap2010:WorkflowViewState.IdRef="Assign_3">
+                                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Sub_Framework\Record Reconciled Transaction Details.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,114.66666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Sub_Framework\Record Reconciled Transaction Details.xaml">
+                                        <ui:InvokeWorkflowFile.Arguments>
+                                          <InOutArgument x:TypeArguments="sd:DataTable" x:Key="dt_TransactionDetails">
+                                            <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dt_TransactionDetails" />
+                                          </InOutArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="XeroPayee">
+                                            <Literal x:TypeArguments="x:String">Apply Rule</Literal>
+                                          </InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="BankPayee">
+                                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="BankPayee" />
+                                          </InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="XeroDate">
+                                            <Literal x:TypeArguments="x:String">Apply Rule</Literal>
+                                          </InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="BankDate">
+                                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="BankDate.ToString" />
+                                          </InArgument>
+                                        </ui:InvokeWorkflowFile.Arguments>
+                                      </ui:InvokeWorkflowFile>
+                                      <Assign sap:VirtualizedContainerService.HintSize="434,84" sap2010:WorkflowViewState.IdRef="Assign_3">
                                         <Assign.To>
                                           <OutArgument x:TypeArguments="x:Int32">[increment]</OutArgument>
                                         </Assign.To>
@@ -406,7 +444,7 @@
                       </If.Else>
                     </If>
                   </Sequence>
-                  <Assign DisplayName="increment count" sap:VirtualizedContainerService.HintSize="724,84.66666666666667" sap2010:WorkflowViewState.IdRef="Assign_2">
+                  <Assign DisplayName="increment count" sap:VirtualizedContainerService.HintSize="724,84" sap2010:WorkflowViewState.IdRef="Assign_2">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:Int32">[increment]</OutArgument>
                     </Assign.To>

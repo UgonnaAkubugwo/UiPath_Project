@@ -1,0 +1,11 @@
+﻿Hi,
+
+The Xero Reconciliation Robot has completed the reconciliation of the accounts assigned to it.
+
+Attached to the mail is a copy of the report generated during the reconciliation of the accounts.
+
+Thank you.
+
+Kind Regards,
+
+Client_Name Xero Reconciliation Robot.

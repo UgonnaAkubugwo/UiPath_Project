@@ -1,0 +1,13 @@
+﻿Hi,
+
+The Client_Name Xero Reconciliation Robot encountered an exception while it was working.
+
+Here's the details of the exception encountered.
+
+Exeception Message: Error_Message.
+
+Thank you.
+
+Kind Regards,
+
+Client_Name Xero Reconciliation Robot.
