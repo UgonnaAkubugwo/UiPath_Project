@@ -81,6 +81,7 @@
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Workflow</AssemblyReference>
       <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence sap2010:Annotation.AnnotationText="Open applications used in the process and do necessary initialization procedures (e.g., login)." DisplayName="Initialize All Applications" sap:VirtualizedContainerService.HintSize="450,346" sap2010:WorkflowViewState.IdRef="Sequence_9">
@@ -108,9 +109,9 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <Flowchart.StartNode>
-        <x:Reference>__ReferenceID10</x:Reference>
+        <x:Reference>__ReferenceID14</x:Reference>
       </Flowchart.StartNode>
-      <FlowStep x:Name="__ReferenceID10">
+      <FlowStep x:Name="__ReferenceID14">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <av:Point x:Key="ShapeLocation">210,13.52</av:Point>
@@ -118,11 +119,9 @@
             <av:PointCollection x:Key="ConnectorLocation">410,40.519999999999996 440,40.519999999999996 440,40 740,40</av:PointCollection>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Sub_Framework\Open Browser Application.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,54" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Sub_Framework\Open Browser Application.xaml">
+        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Sub_Framework\Open Browser Application.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,54" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" Level="{x:Null}" LogEntry="{x:Null}" LogExit="{x:Null}" Timeout="{x:Null}" UnSafe="False" WorkflowFileName="Sub_Framework\Open Browser Application.xaml">
           <ui:InvokeWorkflowFile.Arguments>
-            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-              <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
-            </InArgument>
+            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
           </ui:InvokeWorkflowFile.Arguments>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -139,7 +138,7 @@
                 <av:PointCollection x:Key="ConnectorLocation">840,67 840,97 839.975,97 839.975,117.52</av:PointCollection>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:UiElementExists DisplayName="Element Exists 'INPUT  xl-form-email'" Exists="[Homepage_Exist]" sap:VirtualizedContainerService.HintSize="200,54" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+            <ui:UiElementExists ContinueOnError="{x:Null}" DisplayName="Element Exists 'INPUT  xl-form-email'" Exists="[Homepage_Exist]" sap:VirtualizedContainerService.HintSize="200,54" sap2010:WorkflowViewState.IdRef="UiElementExists_1" Result="{x:Null}">
               <ui:UiElementExists.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f8bc1034-bb32-4971-8128-5571ab46bf49" InformativeScreenshot="db235eb16bde8999b7b86e7fcabc61b5" Selector="&lt;html app='chrome.exe' title='*Xero*' /&gt;&lt;webctrl id='xl-form-email' tag='INPUT' /&gt;">
                   <ui:Target.TimeoutMS>
@@ -158,41 +157,38 @@
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     <av:Point x:Key="ShapeLocation">800.6416666666667,117.52</av:Point>
                     <av:Size x:Key="ShapeSize">78.66666666666667,86.66666666666667</av:Size>
-                    <av:PointCollection x:Key="TrueConnector">800.6416666666667,160.85333333333332 770.6416666666667,160.85333333333332 770.6416666666667,161.37333333333333 680.6416666666667,161.37333333333333</av:PointCollection>
+                    <av:PointCollection x:Key="TrueConnector">800.6416666666667,160.85333333333332 720,160.85333333333332</av:PointCollection>
                     <av:PointCollection x:Key="FalseConnector">879.3083333333333,160.85333333333332 909.3083333333333,160.85333333333332 909.3083333333333,161.37333333333333 1019.3083333333333,161.37333333333333</av:PointCollection>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
                 <FlowDecision.True>
-                  <FlowStep x:Name="__ReferenceID0">
+                  <FlowStep x:Name="__ReferenceID10">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <av:Point x:Key="ShapeLocation">480.64166666666665,134.37333333333333</av:Point>
+                        <av:Point x:Key="ShapeLocation">520,133.85333333333332</av:Point>
                         <av:Size x:Key="ShapeSize">200,54</av:Size>
-                        <av:PointCollection x:Key="ConnectorLocation">480.64166666666665,161.37333333333333 450.64166666666665,161.37333333333333 450.64166666666665,161.89333333333335 390.64166666666665,161.89333333333335</av:PointCollection>
+                        <av:PointCollection x:Key="ConnectorLocation">520,160.85333333333332 490,160.85333333333332 490,161.37333333333333 460.64166666666665,161.37333333333333</av:PointCollection>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Sub_Framework\Login.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,54" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Sub_Framework\Login.xaml">
-                      <ui:InvokeWorkflowFile.Arguments>
-                        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-                      </ui:InvokeWorkflowFile.Arguments>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="200,54" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Browser Launched&quot;]">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                    </ui:InvokeWorkflowFile>
+                    </ui:LogMessage>
                     <FlowStep.Next>
-                      <FlowStep x:Name="__ReferenceID4">
+                      <FlowStep x:Name="__ReferenceID0">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <av:Point x:Key="ShapeLocation">190.64166666666665,134.89333333333335</av:Point>
+                            <av:Point x:Key="ShapeLocation">260.64166666666665,134.37333333333333</av:Point>
                             <av:Size x:Key="ShapeSize">200,54</av:Size>
-                            <av:PointCollection x:Key="ConnectorLocation">190.64166666666665,161.89333333333335 180.61666666666667,161.89333333333335 180.61666666666667,258.8933333333333 720.6166666666667,258.8933333333333 720.6166666666667,288.8933333333333</av:PointCollection>
+                            <av:PointCollection x:Key="ConnectorLocation">260.64166666666665,161.37333333333333 230.64166666666665,161.37333333333333 230.64166666666665,160 230,160</av:PointCollection>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Sub_Framework\Two Factor Authentication.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,54" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Sub_Framework\Two Factor Authentication.xaml">
+                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Sub_Framework\Login.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,54" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" Level="{x:Null}" LogEntry="{x:Null}" LogExit="{x:Null}" Timeout="{x:Null}" UnSafe="False" WorkflowFileName="Sub_Framework\Login.xaml">
                           <ui:InvokeWorkflowFile.Arguments>
-                            <OutArgument x:TypeArguments="x:Boolean" x:Key="out_AuthenticationExist">[Authentication_Exist]</OutArgument>
+                            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
                           </ui:InvokeWorkflowFile.Arguments>
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -201,95 +197,170 @@
                           </sap:WorkflowViewStateService.ViewState>
                         </ui:InvokeWorkflowFile>
                         <FlowStep.Next>
-                          <FlowDecision x:Name="__ReferenceID5" Condition="[in_Config(&quot;Use_Authy_App&quot;).ToString.ToUpper.Contains(&quot;YES&quot;) and Authentication_Exist = True]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="78.66666666666667,86.66666666666667" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
+                          <FlowStep x:Name="__ReferenceID4">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                <av:Point x:Key="ShapeLocation">681.2833333333333,288.8933333333333</av:Point>
-                                <av:Size x:Key="ShapeSize">78.66666666666667,86.66666666666667</av:Size>
-                                <av:PointCollection x:Key="TrueConnector">681.2833333333333,332.22666666666663 651.2833333333333,332.22666666666663 651.2833333333333,332.74666666666667 551.2833333333333,332.74666666666667</av:PointCollection>
-                                <av:PointCollection x:Key="FalseConnector">759.9499999999999,332.22666666666663 789.9499999999999,332.22666666666663 789.9499999999999,332.74666666666667 919.95,332.74666666666667</av:PointCollection>
+                                <av:Point x:Key="ShapeLocation">30,133</av:Point>
+                                <av:Size x:Key="ShapeSize">200,54</av:Size>
+                                <av:PointCollection x:Key="ConnectorLocation">30,160 9.975000000000023,160 9.975000000000023,266.5 939.975,266.5 939.975,296.5</av:PointCollection>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <FlowDecision.True>
-                              <FlowStep x:Name="__ReferenceID7">
+                            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Sub_Framework\Two Factor Authentication.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,54" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" Level="{x:Null}" LogEntry="{x:Null}" LogExit="{x:Null}" Timeout="{x:Null}" UnSafe="False" WorkflowFileName="Sub_Framework\Two Factor Authentication.xaml">
+                              <ui:InvokeWorkflowFile.Arguments>
+                                <OutArgument x:TypeArguments="x:Boolean" x:Key="out_AuthenticationExist">[Authentication_Exist]</OutArgument>
+                              </ui:InvokeWorkflowFile.Arguments>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </ui:InvokeWorkflowFile>
+                            <FlowStep.Next>
+                              <FlowDecision x:Name="__ReferenceID11" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="78.66666666666667,86.66666666666667" sap2010:WorkflowViewState.IdRef="FlowDecision_3">
+                                <FlowDecision.Condition>
+                                  <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="Authentication_Exist = True" />
+                                </FlowDecision.Condition>
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <av:Point x:Key="ShapeLocation">351.2833333333333,305.74666666666667</av:Point>
-                                    <av:Size x:Key="ShapeSize">200,54</av:Size>
-                                    <av:PointCollection x:Key="ConnectorLocation">351.2833333333333,332.74666666666667 211.2833333333333,332.74666666666667</av:PointCollection>
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <av:Point x:Key="ShapeLocation">900.6416666666667,296.5</av:Point>
+                                    <av:Size x:Key="ShapeSize">78.66666666666667,86.66666666666667</av:Size>
+                                    <av:PointCollection x:Key="TrueConnector">900.6416666666667,339.8333333333333 870.6416666666667,339.8333333333333 870.6416666666667,340.7066666666667 810,340.7066666666667</av:PointCollection>
+                                    <av:PointCollection x:Key="FalseConnector">979.3083333333333,339.8333333333333 1009.3083333333333,339.8333333333333 1009.3083333333333,340.35333333333335 1029.3083333333334,340.35333333333335</av:PointCollection>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Sub_Framework\Launch Authy Authentication App.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,54" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Sub_Framework\Launch Authy Authentication App.xaml">
-                                  <ui:InvokeWorkflowFile.Arguments>
-                                    <InArgument x:TypeArguments="x:String" x:Key="in_AuthyFilepath">[in_Config("Authy_Filepath").ToString]</InArgument>
-                                    <InArgument x:TypeArguments="x:String" x:Key="in_ClientName">[in_Config("Client_Name").ToString]</InArgument>
-                                    <OutArgument x:TypeArguments="x:String" x:Key="out_AuthenticationCode">[AuthenticationCode]</OutArgument>
-                                  </ui:InvokeWorkflowFile.Arguments>
-                                  <sap:WorkflowViewStateService.ViewState>
-                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                    </scg:Dictionary>
-                                  </sap:WorkflowViewStateService.ViewState>
-                                </ui:InvokeWorkflowFile>
-                                <FlowStep.Next>
-                                  <FlowStep x:Name="__ReferenceID8">
+                                <FlowDecision.True>
+                                  <FlowStep x:Name="__ReferenceID12">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                        <av:Point x:Key="ShapeLocation">11.283333333333303,305.74666666666667</av:Point>
+                                        <av:Point x:Key="ShapeLocation">610,313.7066666666667</av:Point>
                                         <av:Size x:Key="ShapeSize">200,54</av:Size>
-                                        <av:PointCollection x:Key="ConnectorLocation">111.2833333333333,359.74666666666667 111.2833333333333,409.74666666666667</av:PointCollection>
+                                        <av:PointCollection x:Key="ConnectorLocation">710,367.7066666666667 710,436.6666666666667</av:PointCollection>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
-                                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Sub_Framework\Authenticate Xero.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,54" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Sub_Framework\Authenticate Xero.xaml">
-                                      <ui:InvokeWorkflowFile.Arguments>
-                                        <InArgument x:TypeArguments="x:String" x:Key="AuthenticationCode">[AuthenticationCode]</InArgument>
-                                      </ui:InvokeWorkflowFile.Arguments>
+                                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="200,54" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Xero 2FA Available&quot;]">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                    </ui:InvokeWorkflowFile>
+                                    </ui:LogMessage>
                                     <FlowStep.Next>
-                                      <FlowStep x:Name="__ReferenceID9">
+                                      <FlowDecision x:Name="__ReferenceID5" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="78.66666666666667,86.66666666666667" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
+                                        <FlowDecision.Condition>
+                                          <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="in_Config(&quot;Use_Authy_App&quot;).ToString.ToUpper.Contains(&quot;YES&quot;)" />
+                                        </FlowDecision.Condition>
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                            <av:Point x:Key="ShapeLocation">11.283333333333303,409.74666666666667</av:Point>
-                                            <av:Size x:Key="ShapeSize">200,99.33333333333333</av:Size>
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            <av:Point x:Key="ShapeLocation">670.6666666666666,436.6666666666667</av:Point>
+                                            <av:Size x:Key="ShapeSize">78.66666666666667,86.66666666666667</av:Size>
+                                            <av:PointCollection x:Key="TrueConnector">670.6666666666666,480 640.6666666666666,480 640.6666666666666,482.74666666666667 551.2833333333333,482.74666666666667</av:PointCollection>
+                                            <av:PointCollection x:Key="FalseConnector">749.3333333333333,480 779.3333333333333,480 779.3333333333333,482.74666666666667 919.95,482.74666666666667</av:PointCollection>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
-                                        <ui:KillProcess AppliesTo="{x:Null}" Process="{x:Null}" sap2010:Annotation.AnnotationText="Closes the Authy Authentication Application" ContinueOnError="True" DisplayName="Kill Authy Process" sap:VirtualizedContainerService.HintSize="200,99.33333333333333" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="authy desktop.exe">
-                                          <sap:WorkflowViewStateService.ViewState>
-                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                                            </scg:Dictionary>
-                                          </sap:WorkflowViewStateService.ViewState>
-                                        </ui:KillProcess>
-                                      </FlowStep>
+                                        <FlowDecision.True>
+                                          <FlowStep x:Name="__ReferenceID7">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <av:Point x:Key="ShapeLocation">351.2833333333333,455.74666666666667</av:Point>
+                                                <av:Size x:Key="ShapeSize">200,54</av:Size>
+                                                <av:PointCollection x:Key="ConnectorLocation">351.2833333333333,482.74666666666667 211.2833333333333,482.74666666666667</av:PointCollection>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Sub_Framework\Launch Authy Authentication App.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,54" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" Level="{x:Null}" LogEntry="{x:Null}" LogExit="{x:Null}" Timeout="{x:Null}" UnSafe="False" WorkflowFileName="Sub_Framework\Launch Authy Authentication App.xaml">
+                                              <ui:InvokeWorkflowFile.Arguments>
+                                                <InArgument x:TypeArguments="x:String" x:Key="in_AuthyFilepath">[in_Config("Authy_Filepath").ToString]</InArgument>
+                                                <InArgument x:TypeArguments="x:String" x:Key="in_ClientName">[in_Config("Client_Name").ToString]</InArgument>
+                                                <OutArgument x:TypeArguments="x:String" x:Key="out_AuthenticationCode">[AuthenticationCode]</OutArgument>
+                                              </ui:InvokeWorkflowFile.Arguments>
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                            </ui:InvokeWorkflowFile>
+                                            <FlowStep.Next>
+                                              <FlowStep x:Name="__ReferenceID8">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <av:Point x:Key="ShapeLocation">11.283333333333303,455.74666666666667</av:Point>
+                                                    <av:Size x:Key="ShapeSize">200,54</av:Size>
+                                                    <av:PointCollection x:Key="ConnectorLocation">111.2833333333333,509.74666666666667 111.2833333333333,549.7466666666667</av:PointCollection>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Sub_Framework\Authenticate Xero.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,54" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" Level="{x:Null}" LogEntry="{x:Null}" LogExit="{x:Null}" Timeout="{x:Null}" UnSafe="False" WorkflowFileName="Sub_Framework\Authenticate Xero.xaml">
+                                                  <ui:InvokeWorkflowFile.Arguments>
+                                                    <InArgument x:TypeArguments="x:String" x:Key="AuthenticationCode">[AuthenticationCode]</InArgument>
+                                                  </ui:InvokeWorkflowFile.Arguments>
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                </ui:InvokeWorkflowFile>
+                                                <FlowStep.Next>
+                                                  <FlowStep x:Name="__ReferenceID9">
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <av:Point x:Key="ShapeLocation">11.283333333333303,549.7466666666667</av:Point>
+                                                        <av:Size x:Key="ShapeSize">200,99.33333333333333</av:Size>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                    <ui:KillProcess sap2010:Annotation.AnnotationText="Closes the Authy Authentication Application" AppliesTo="{x:Null}" ContinueOnError="True" DisplayName="Kill Authy Process" sap:VirtualizedContainerService.HintSize="200,99.33333333333333" sap2010:WorkflowViewState.IdRef="KillProcess_1" Process="{x:Null}" ProcessName="authy desktop.exe">
+                                                      <sap:WorkflowViewStateService.ViewState>
+                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                                        </scg:Dictionary>
+                                                      </sap:WorkflowViewStateService.ViewState>
+                                                    </ui:KillProcess>
+                                                  </FlowStep>
+                                                </FlowStep.Next>
+                                              </FlowStep>
+                                            </FlowStep.Next>
+                                          </FlowStep>
+                                        </FlowDecision.True>
+                                        <FlowDecision.False>
+                                          <FlowStep x:Name="__ReferenceID6">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <av:Point x:Key="ShapeLocation">919.95,455.74666666666667</av:Point>
+                                                <av:Size x:Key="ShapeSize">200,54</av:Size>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <Throw Exception="[new Exception(&quot;Authentication Required&quot;)]" sap:VirtualizedContainerService.HintSize="200,54" sap2010:WorkflowViewState.IdRef="Throw_1">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                            </Throw>
+                                          </FlowStep>
+                                        </FlowDecision.False>
+                                      </FlowDecision>
                                     </FlowStep.Next>
                                   </FlowStep>
-                                </FlowStep.Next>
-                              </FlowStep>
-                            </FlowDecision.True>
-                            <FlowDecision.False>
-                              <FlowStep x:Name="__ReferenceID6">
-                                <sap:WorkflowViewStateService.ViewState>
-                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <av:Point x:Key="ShapeLocation">919.95,305.74666666666667</av:Point>
-                                    <av:Size x:Key="ShapeSize">200,54</av:Size>
-                                  </scg:Dictionary>
-                                </sap:WorkflowViewStateService.ViewState>
-                                <Throw Exception="[new Exception(&quot;Authentication Required&quot;)]" sap:VirtualizedContainerService.HintSize="200,54" sap2010:WorkflowViewState.IdRef="Throw_1">
-                                  <sap:WorkflowViewStateService.ViewState>
-                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                    </scg:Dictionary>
-                                  </sap:WorkflowViewStateService.ViewState>
-                                </Throw>
-                              </FlowStep>
-                            </FlowDecision.False>
-                          </FlowDecision>
+                                </FlowDecision.True>
+                                <FlowDecision.False>
+                                  <FlowStep x:Name="__ReferenceID13">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <av:Point x:Key="ShapeLocation">1029.3083333333334,313.35333333333335</av:Point>
+                                        <av:Size x:Key="ShapeSize">200,54</av:Size>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,96" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Xero 2FA not Available&quot;]">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </ui:LogMessage>
+                                  </FlowStep>
+                                </FlowDecision.False>
+                              </FlowDecision>
+                            </FlowStep.Next>
+                          </FlowStep>
                         </FlowStep.Next>
                       </FlowStep>
                     </FlowStep.Next>
@@ -301,10 +372,10 @@
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <av:Point x:Key="ShapeLocation">1019.3083333333333,134.37333333333333</av:Point>
                         <av:Size x:Key="ShapeSize">200,54</av:Size>
-                        <av:PointCollection x:Key="ConnectorLocation">1119.3083333333334,188.37333333333333 1119.3083333333334,218.37333333333333 580.6416666666667,218.37333333333333 580.6416666666667,188.37333333333333</av:PointCollection>
+                        <av:PointCollection x:Key="ConnectorLocation">1119.3083333333334,188.37333333333333 1119.3083333333334,218.37333333333333 360.64166666666665,218.37333333333333 360.64166666666665,188.37333333333333</av:PointCollection>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Sub_Framework\Logout.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,54" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Sub_Framework\Logout.xaml">
+                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Sub_Framework\Logout.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="200,54" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" Level="{x:Null}" LogEntry="{x:Null}" LogExit="{x:Null}" Timeout="{x:Null}" UnSafe="False" WorkflowFileName="Sub_Framework\Logout.xaml">
                       <ui:InvokeWorkflowFile.Arguments>
                         <scg:Dictionary x:TypeArguments="x:String, Argument" />
                       </ui:InvokeWorkflowFile.Arguments>
@@ -334,6 +405,10 @@
       <x:Reference>__ReferenceID7</x:Reference>
       <x:Reference>__ReferenceID8</x:Reference>
       <x:Reference>__ReferenceID9</x:Reference>
+      <x:Reference>__ReferenceID10</x:Reference>
+      <x:Reference>__ReferenceID11</x:Reference>
+      <x:Reference>__ReferenceID12</x:Reference>
+      <x:Reference>__ReferenceID13</x:Reference>
     </Flowchart>
   </Sequence>
 </Activity>
