@@ -9,7 +9,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>612,1425.3333333333333</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>602,1425.3333333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Get_Bank_Details_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -103,6 +103,13 @@
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="Get_Bank_Details" sap:VirtualizedContainerService.HintSize="580.6666666666666,1360.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Int32" Name="ElementTimeout">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:Int32" Value="300" />
+        </Variable.Default>
+      </Variable>
+    </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -156,10 +163,7 @@
             </ui:GetValue>
             <ui:UiElementExists DisplayName="Reference Element Exist" Exists="[ReferenceExist]" sap:VirtualizedContainerService.HintSize="422.6666666666667,107.33333333333333" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
               <ui:UiElementExists.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="120ba506-35f0-49fd-81fb-dee7f6795e2a" InformativeScreenshot="b8b8416634e465037b3bc78fc676dc54" Selector="[string.Format(&quot;&lt;webctrl css-selector='body&amp;gt;div&amp;gt;form&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' tag='DIV' class='line ' id='{0}' parentid='statementLines' /&gt;&lt;webctrl tag='SPAN' parentclass='*details' idx='3' /&gt;&quot;, id)]">
-                  <ui:Target.TimeoutMS>
-                    <InArgument x:TypeArguments="x:Int32" />
-                  </ui:Target.TimeoutMS>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="120ba506-35f0-49fd-81fb-dee7f6795e2a" InformativeScreenshot="b8b8416634e465037b3bc78fc676dc54" Selector="[string.Format(&quot;&lt;webctrl css-selector='body&amp;gt;div&amp;gt;form&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' tag='DIV' class='line ' id='{0}' parentid='statementLines' /&gt;&lt;webctrl tag='SPAN' parentclass='*details' idx='3' /&gt;&quot;, id)]" TimeoutMS="[ElementTimeout]">
                   <ui:Target.WaitForReady>
                     <InArgument x:TypeArguments="ui:WaitForReady" />
                   </ui:Target.WaitForReady>
